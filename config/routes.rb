@@ -7,6 +7,10 @@ Rails.application.routes.draw do
               path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profil' },
               controllers: {omniauth_callbacks: 'omniauth_callbacks'}
 
+  ressources :conversation, only: [:index, :create] do
+    ressources :message, only: [:index, :create]
+
+  end
 
 end
 
