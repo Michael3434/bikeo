@@ -5,9 +5,9 @@
       <div class="panel-heading">Your conversations</div>
       <div class="panel-body">
         <div class="container">
-          <% @conversation.each do |conversation| %>
+          <% @conversations.each do |conversation| %>
             <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %>
-            <%= link_to conversation_messages_path(@conversation) do %>
+            <%= link_to conversation_messages_path(conversation) do %>
             <div class="row conversation">
               <div class="col-md-2">
                 <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %>
@@ -28,10 +28,10 @@
     </div>
 
     <h3>All users</h3>
-    <% @uers.each do |user| %>
+    <% @users.each do |user| %>
       <% if user != current_user %>
       <%= user.fullname %>
-      <%= link_to "Send Message", conversation_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
+      <%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
       <% end %>
       <br>
     <% end %>
