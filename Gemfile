@@ -18,6 +18,8 @@ gem 'toastr-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem "figaro"
+
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
