@@ -15,11 +15,10 @@ gem 'sass-rails', '>= 3.2'
 
 gem 'toastr-rails'
 
-gem 'omniauth'
-gem 'omniauth-facebook'
-
 gem "figaro"
 
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
