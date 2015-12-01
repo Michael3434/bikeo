@@ -1,6 +1,5 @@
 class Bike < ActiveRecord::Base
   validates :user_id, presence:true
-  validates :type, presence:true
   validates :size, presence:true
   validates :accessories, presence:true
   validates :title, presence:true
