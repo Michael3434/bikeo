@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 gem 'pg'
@@ -11,6 +12,11 @@ gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
+
+gem 'toastr-rails'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 
 gem 'turbolinks'
