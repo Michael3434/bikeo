@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'pages/home'
-
-  devise_for :users
 
   root 'pages#home'
+
+  devise_for  :users,
+              path: '',
+              path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profil' },
+              controllers: {omniauth_callbacks: 'omniauth_callbacks'}
 
 
 end
