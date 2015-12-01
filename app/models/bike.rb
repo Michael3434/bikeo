@@ -16,5 +16,5 @@ class Bike < ActiveRecord::Base
   validates :state, presence:true
 
   belongs_to :user
-
+  has_many :photos
 end
