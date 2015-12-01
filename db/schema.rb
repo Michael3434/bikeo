@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201002352) do
+ActiveRecord::Schema.define(version: 20151201134651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bikes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.string   "size"
+    t.string   "accessories"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "price_hour"
+    t.integer  "price_day"
+    t.integer  "price_week"
+    t.integer  "price_month"
+    t.integer  "price_year"
+    t.string   "country"
+    t.string   "city"
+    t.string   "address"
+    t.string   "zipcode"
+    t.string   "state"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "bikes", ["user_id"], name: "index_bikes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -38,4 +61,5 @@ ActiveRecord::Schema.define(version: 20151201002352) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "bikes", "users"
 end
