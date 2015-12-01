@@ -27,7 +27,6 @@
     </div>
 
     <div id="chat">
-      <%= raise %>
       <% @messages.each do |message| %>
       <%= render 'messages/messages', message: message %>
       <% end %>
