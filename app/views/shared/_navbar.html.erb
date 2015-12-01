@@ -29,7 +29,9 @@
         </li>
       <% end %>
       <li>
-        <a href="#"><i class="fa fa-envelope-o"></i>&nbspMessage</a>
+        <%= link_to conversations_path do %>
+        <i class="fa fa-envelope-o"></i> Message
+        <% end %>
       </li>
       <li>
         <a href="#"><i class="fa fa-home fa-lg"></i>&nbsp;Post A Bike</a>
