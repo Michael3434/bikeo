@@ -13,7 +13,7 @@
       </div>
       <div class="panel-body">
         <div class="container">
-          <%= form_for [@conversation, @conversation.messages.new] do |f| %>
+          <%= form_for [@conversation, @conversation.messages.new], remote: true do |f| %>
             <div class="form-group">
               <%= f.text_area :content, id: "new_message", placeholder: "Add a personal message", class: "form-control" %>
               <%= f.hidden_field :user_id, value: current_user.id %>
@@ -27,8 +27,9 @@
     </div>
 
     <div id="chat">
+      <%= raise %>
       <% @messages.each do |message| %>
-      <%= render 'messages', message: message %>
+      <%= render 'messages/messages', message: message %>
       <% end %>
     </div>
 

@@ -1,4 +1,6 @@
-var new_message = $("<%= j render 'messages/index', message: @message %>").hide();
+console.log("lol");
+var new_message = $("<%= j render 'messages/messages', message: @message %>").hide();
+
   $('#chat').prepend(new_message);
   new_message.slideDown();
   $('#text').val('');
