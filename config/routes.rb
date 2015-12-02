@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   devise_for  :users,
               path: '',
-              path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profil' },
+              path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profil'},
               controllers: {omniauth_callbacks: 'omniauth_callbacks'}
 
   resources :conversations, only: [:index, :create] do
