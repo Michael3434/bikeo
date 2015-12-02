@@ -5,8 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Bike.destroy_all
 
-9.times do
+2.times do
   Bike.create(
     user_id: rand(1..3),
     category: "momo",

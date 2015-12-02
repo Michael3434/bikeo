@@ -6,25 +6,27 @@
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
-      <div class="panel-heavy">
-        Listings
+      <div class="panel-heading">
+      Your wonderful bikes !
       </div>
       <div class="panel-body">
-        <%= @bikes.each do |bike| %>
+        <% @bikes.each do |bike| %>
           <div class="row">
             <div class="col-md-2">
               <%= image_tag bike.photos[0].image.url(:thumb) if bike.photos.length > 0 %>
             </div>
             <div class="col-md-7">
-              <h4><%= room.listing_name %></h4>
+              <h4><%= bike.title %></h4>
             </div>
             <div class="col-md-3 right">
-              <%= link_to "Update, edit_bike_path(bike)", class: "btn btn-primary" %>
+              <%= link_to "Show", bike_path(bike), class: "btn btn-primary" %>
+              <%= link_to "Update", edit_bike_path(bike), class: "btn btn-primary" %>
             </div>
           </div>
+          <hr>
         <% end %>
 
+      </div>
+    </div>
+  </div>
 </div>
-  </div>
-
-  </div>
