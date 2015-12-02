@@ -14,7 +14,6 @@ x = 1
     user_id: rand(3..4),
     category: "momo",
     size: "big",
-    accessories: "locker",
     title: "French bike",
     description: "beau vélo tout neuf",
     price_hour: 10,
