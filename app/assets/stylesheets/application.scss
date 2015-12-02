@@ -276,3 +276,25 @@ input[type="checkbox"]:checked:before {
 .card-link:hover{
   opacity: 0.1;
 }
+
+.read {
+    right: 0;
+    bottom: 0;
+    margin: 0px 8px;
+    position: absolute;
+    color: #2CBE42;
+    content: "\f00c";
+}
+
+.unread {
+    right: 0;
+    bottom: 0;
+    margin: 0px 8px;
+    position: absolute;
+    color: #C8D5B9;
+    content: "\f00c";
+}
+
+.panel-message {
+  position: relative;
+}

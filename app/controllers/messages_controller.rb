@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
     if current_user == @conversation.sender || current_user == @conversation.recipient
     @other = current_user == @conversation.sender ? @conversation.recipient : @conversation.sender
     @messages = @conversation.messages.order("created_at DESC")
+
     else
       redirect_to conversations_path, alert: "You don't have the permission to view this."
     end
@@ -15,6 +16,8 @@ class MessagesController < ApplicationController
     if params[:message][:content] != ""
       @message = @conversation.messages.new(message_params)
       @messages = @conversation.messages.order("created_at DESC")
+      p @messages
+      p "#"*100
 
       if @message.save
         respond_to do |format|
