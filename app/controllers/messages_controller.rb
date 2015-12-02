@@ -1,4 +1,4 @@
-dclass MessagesController < ApplicationController
+class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_conversation
 
