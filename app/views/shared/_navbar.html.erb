@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">BiKiT</a>
+      <%= link_to "BikiT", root_path, class: "navbar-brand" %>
     </div>
     <div id="navbar" class="navbar-collapse collapse navbar-right">
       <ul class="nav navbar-nav">
@@ -26,10 +26,11 @@
             <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
-      <% end %>
-      <li>
-        <%= link_to conversations_path do %>
-        <i class="fa fa-envelope-o"></i> Message
+          <li class="li-message">
+          <%= link_to conversations_path do %>
+            <%= "<div class='icon-badge'>#{@message_unread}</div>".html_safe if !@message_unread.nil? && @message_unread > 0 %>
+            <i class="fa fa-envelope-o">&nbsp;Messages</i>
+          <% end %>
         <% end %>
       </li>
       <li>

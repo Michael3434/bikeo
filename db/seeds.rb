@@ -6,9 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-9.times do
-  Bike.create(
-    user_id: rand(1..3),
+Bike.destroy_all
+
+x = 1
+3.times do
+  bike = Bike.create(
+    user_id: rand(3..4),
     category: "momo",
     size: "big",
     title: "French bike",
@@ -24,4 +27,9 @@
     zipcode: 75003,
     state: "ici"
     )
+  Photo.create({
+    image: File.new("#{Rails.root}/app/assets/images/bike#{x}.jpg"),
+    bike: bike
+})
+  x += 1
 end

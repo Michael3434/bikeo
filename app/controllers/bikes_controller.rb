@@ -6,9 +6,8 @@ before_action :authenticate_user!, except: [:show]
     @bikes = Bike.all
   end
 
-  def show
+   def show
     @photos = @bike.photos
-
   end
 
   def new
@@ -18,7 +17,7 @@ before_action :authenticate_user!, except: [:show]
   def create
     @bike = Bike.new(bike_params)
     if @bike.save
-      redirect_to @bike, notice: "Saved..."
+      redirect_to bike_path(@bike), notice: "Saved..."
     else
       raise
       render :new
@@ -37,6 +36,7 @@ before_action :authenticate_user!, except: [:show]
     end
   end
 
+
 private
 
   def set_bike
@@ -45,4 +45,6 @@ private
   def bike_params
     params.require(:bike).permit(:user_id, :size, :title, :description, :price_hour, :price_day, :price_week, :price_month, :price_year, :country, :city, :address, :zipcode, :state, :category, :is_lock, :is_helmet,:is_lights, :is_bell, :is_reflectors, :is_baskets, :is_trailers, :speed, :chain_wheel)
   end
+
+
 end

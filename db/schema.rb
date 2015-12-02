@@ -58,8 +58,9 @@ ActiveRecord::Schema.define(version: 20151202160302) do
     t.text     "content"
     t.integer  "conversation_id"
     t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "opened",          default: false
   end
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
