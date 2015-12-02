@@ -3,4 +3,4 @@ var new_message = $("<%= j render 'messages/messages', message: @message %>").hi
 
   $('#chat').prepend(new_message);
   new_message.slideDown();
-  $('#text').val('');
+  $('#new_message').val('');
