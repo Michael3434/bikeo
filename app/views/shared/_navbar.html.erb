@@ -27,11 +27,11 @@
             <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
-      <% end %>
-      <li class="li-message">
-        <%= link_to conversations_path do %>
-        <div class="icon-badge"><%= @message_unread %></div>
-        <i class="fa fa-envelope-o">&nbsp;Messages</i>
+          <li class="li-message">
+          <%= link_to conversations_path do %>
+            <%= "<div class='icon-badge'>#{@message_unread}</div>".html_safe if !@message_unread.nil? && @message_unread > 0 %>
+            <i class="fa fa-envelope-o">&nbsp;Messages</i>
+          <% end %>
         <% end %>
       </li>
       <li>

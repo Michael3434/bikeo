@@ -13,10 +13,12 @@ class ApplicationController < ActionController::Base
   end
 
   def set_messages_unread
-    @message_unread = 0
-    @messages = @conversations.each do |conversation|
-      conversation.messages.each do |message|
-        @message_unread += 1 if message.opened != true && message.user != current_user
+    if current_user
+      @message_unread = 0
+      @messages = @conversations.each do |conversation|
+        conversation.messages.each do |message|
+          @message_unread += 1 if message.opened != true && message.user != current_user
+        end
       end
     end
   end
