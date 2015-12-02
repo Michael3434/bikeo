@@ -1,8 +1,8 @@
   <div class="panel panel-message">
     <div class="panel-body">
        <% if message.user == current_user %>
-        <%= "<i class='fa fa-check unread fa-2x'></i>".html_safe  %>
-        <%= "<i class='fa fa-check read fa-2x'></i>".html_safe  %>
+        <%= "<i class='fa fa-check unread fa-2x'></i>".html_safe if message.opened == false  %>
+        <%= "<i class='fa fa-check read fa-2x'></i>".html_safe if message.opened == true %>
        <% end %>
       <%= image_tag avatar_url(message.user), class: "img-circle avatar-small" %>
       <strong><%= message.user.fullname %></strong>

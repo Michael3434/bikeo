@@ -10,6 +10,14 @@ class ApplicationController < ActionController::Base
   def configure_permitted_paramters
     devise_parameter_sanitizer.for(:sign_up) << :fullname
     devise_parameter_sanitizer.for(:account_update) << :fullname
+  end
 
+  def set_messages_unread
+    @message_unread = 0
+    @messages = @conversations.each do |conversation|
+      conversation.messages.each do |message|
+        @message_unread += 1 if message.opened != true && message.user != current_user
+      end
+    end
   end
 end
