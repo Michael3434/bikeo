@@ -1,0 +1,173 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    Post your beautiful bike
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <%= form_for @bike do |f| %>
+      <h3> Bike </h3>
+
+        <div class="row">
+          <div class="col-md-6 select">
+            <div class="form-group">
+              <label>Bike type</label>
+              <%= f.select :category, [["Road","Road"],["Mountain","Mountain"],["Cruiser","Cruiser"],["Fixed gear","Fixed gear"],["Single speed","Single speed"],["Electric","Electric"],["Tandem","Tandem"],["Other","Other"]], id: "category", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-6 select">
+            <div class="form-group">
+              <label>Size</label>
+              <%= f.select :size, [["121 cm or less","121 cm or less"],["129 cm","129 cm"],["137 cm","137 cm"],["144 cm","144 cm"],["152 cm","152 cm"],["160 cm","160 cm"],["167 cm","167 cm"], ["175 cm","175 cm"],["182 cm","182 cm"],["190 cm or more"]], id: "category", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+          <div class="row">
+          <div class="col-md-6 select">
+            <div class="form-group">
+              <label>Speed</label>
+              <%= f.select :speed, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10],["11",11],["12",12],["13",13],["14 or more",14]], id: "category", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-6 select">
+            <div class="form-group">
+              <label>Chain wheel</label>
+              <%= f.select :chain_wheel, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7 or more",7]], id: "category", prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+          </div>
+
+
+        <div class="row">
+          <div class="form-group">
+          <label> Bike title</label>
+            <%= f.text_field :title, placeholder: "Put a fancy title", class: "form-control" %>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="form-group">
+          <label> Bike description</label>
+          <%= f.text_area :description, row:5, placeholder: "Put a detailed description (brand, series number)", class: "form-control" %>
+        </div>
+
+        <h3> Accessories </h3>
+        <div class="row">
+          <div class="col-md-4">
+          <div class="form-group">
+            <%= f.check_box :is_lock %> Lock
+          </div>
+          <div class="form-group">
+            <%= f.check_box :is_helmet %> Helmet
+          </div>
+          <div class="form-group">
+            <%= f.check_box :is_lights %> Ligths
+          </div>
+          </div>
+
+
+          <div class="col-md-4">
+          <div class="form-group">
+            <%= f.check_box :is_bell %> Bell
+          </div>
+          <div class="form-group">
+            <%= f.check_box :is_reflectors %> Reflectors
+          </div>
+          <div class="form-group">
+            <%= f.check_box :is_baskets %> Baskets
+          </div>
+          </div>
+
+         <div class="col-md-4">
+          <div class="form-group">
+            <%= f.check_box :is_trailers %> Trailers
+          </div>
+
+          </div>
+          </div>
+
+
+        </div>
+
+
+        <h3> Price </h3>
+
+          <div class="row">
+          <div class="col-md-4">
+          <label> Price per hour</label>
+            <%= f.text_field :price_hour, placeholder: "In euros by hour", class: "form-control" %>
+
+          </div>
+            <div class="col-md-4">
+          <label> Price per day</label>
+            <%= f.text_field :price_day, placeholder: "In euros by day", class: "form-control" %>
+
+          </div>
+          <div class="col-md-4">
+          <label> Price per week</label>
+            <%= f.text_field :price_week, placeholder: "In euros by week", class: "form-control" %>
+
+          </div>
+          </div>
+   <div class="row">
+          <div class="col-md-4">
+          <label> Price per month</label>
+            <%= f.text_field :price_month, placeholder: "In euros by month", class: "form-control" %>
+
+          </div>
+            <div class="col-md-4">
+          <label> Price per year</label>
+            <%= f.text_field :price_day, placeholder: "In euros by year", class: "form-control" %>
+
+          </div>
+          </div>
+
+
+
+
+
+        <h3> Location </h3>
+
+         <div class="row">
+          <div class="form-group">
+          <label> Address</label>
+            <%= f.text_field :address, placeholder: "What is your address?", class: "form-control" %>
+          </div>
+          </div>
+
+
+         <div class="row">
+          <div class="col-md-4">
+          <div class="form-group">
+          <label>City</label>
+            <%= f.text_field :city, placeholder: "What is your city?", class: "form-control" %>
+          </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+            <label>Zipcode</label>
+              <%= f.text_field :zipcode, placeholder: "What is your zipcode?", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+          <div class="form-group">
+          <label> State</label>
+            <%= f.text_field :state, placeholder: "What is your state? (optional) ", class: "form-control" %>
+          </div>
+          </div>
+
+        </div>
+        <div class="actions">
+        <%= f.submit "Save", class: "btn btn-primary" %>
+        </div>
+
+      <% end %>
+  </div>
+</div>

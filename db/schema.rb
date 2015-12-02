@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201193312) do
+ActiveRecord::Schema.define(version: 20151202160302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20151201193312) do
     t.integer  "user_id"
     t.string   "category"
     t.string   "size"
-    t.string   "accessories"
     t.string   "title"
     t.text     "description"
     t.integer  "price_hour"
@@ -33,8 +32,17 @@ ActiveRecord::Schema.define(version: 20151201193312) do
     t.string   "address"
     t.string   "zipcode"
     t.string   "state"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.boolean  "is_lock"
+    t.boolean  "is_helmet"
+    t.boolean  "is_lights"
+    t.boolean  "is_bell"
+    t.boolean  "is_reflectors"
+    t.boolean  "is_baskets"
+    t.boolean  "is_trailers"
+    t.integer  "speed"
+    t.integer  "chain_wheel"
   end
 
   add_index "bikes", ["user_id"], name: "index_bikes_on_user_id", using: :btree
