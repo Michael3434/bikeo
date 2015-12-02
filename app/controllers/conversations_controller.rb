@@ -5,6 +5,7 @@ class ConversationsController < ApplicationController
   def index
     @users = User.all
     @conversations = Conversation.involving(current_user)
+    set_messages_unread
   end
 
 def create
