@@ -2,8 +2,8 @@
   <div class="panel-body">
     <!-- Image -->
     <div class="row">
-      <div class="col-md-12">
-        <%= image_tag @photos[0].image.url(), class: "img-responsive" %>
+      <div class="col-md-12 text-center">
+        <%= image_tag @photos[0].image.url(), class: "pico img-responsive" %>
       </div>
     </div>
 
@@ -11,50 +11,44 @@
 
 
       <!-- Main info -->
-      <div class="row">
-        <div class="col-md-8">
           <div class="row">
             <div class="col-md-3 text-center">
-              <%= image_tage avatar_url(@bike.user), class: "img-circle avatar-large" %>
+              <%= image_tag avatar_url(@bike.user), class: "img-circle avatar" %>
               <%= @bike.user.fullname %>
             </div>
 
             <div class="col-md-9">
               <h4><%= @bike.title %></h4>
-            </div>
-            <div class="row text-center row-space-1">
-              <div class="col-sm-3">
-                <i class="fa fa-bicycle"></i>
-              </div>
-              <div class="col-sm-3">
-                <i class="fa fa-tachometer"></i>
-              </div>
-              <div class="col-sm-3">
-                <i class="fa fa-cogs"></i>
-              </div>
-              <div class="col-sm-3">
-                <i class="fa fa-magic"></i>
+              <div class="row text-center row-space-1">
+                <div class="col-sm-3">
+                  <div>
+                    <i class="fa fa-bicycle"></i>
+                  </div>
+                  <div>
+                    <%= @bike.category %>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <i class="fa fa-tachometer"></i>
+                </div>
+                <div class="col-sm-3">
+                  <i class="fa fa-cogs"></i>
+                </div>
+                <div class="col-sm-3">
+                  <div>
+                    <i class="fa fa-magic"></i>
+                  </div>
+                  <div>
+                    <%= @bike.accessories.length %> <%= @bike.accessories.length > 1 ? "Accessories" : "Accessory" %>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="row text-center">
-              <div class="col-sm-3">
-                <%= @bike.category %>
-              </div>
-              <div class="col-sm-3">
-                <%= @bike.speed %>
-              </div>
-              <div class="col-sm-3">
-                <%= @bike.chain_wheel %>
-              </div>
-              <div class="col-sm-3">
-                <%= @bike.accessories %> <%= @bike.accessories > 1? "Accessories" : "Accessory" %>
-            </div>
-           </div>
+
+
+
           </div>
-         </div>
-
-        </div>
 
 
       <!-- About -->
