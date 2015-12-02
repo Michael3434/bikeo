@@ -17,6 +17,10 @@ gem 'toastr-rails'
 
 gem "figaro"
 
+ruby '2.2.3'
+gem 'rails_12factor', group: :production
+gem 'puma',           group: :production
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 
