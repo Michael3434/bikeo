@@ -6,5 +6,9 @@ class PagesController < ApplicationController
     set_messages_unread
   end
 
+  def search
+
+  end
+
 
 end

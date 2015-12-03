@@ -1,0 +1,51 @@
+<div id="wrapper">
+
+  <div id="sidebar">
+    <div id="widget" class="sticky">
+
+    </div>
+  </div>
+
+  <div id="article">
+
+    <%= search_form_for @search, url: search_path do |f| %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= text_field_tag :search, params[:search], placeholder: "Where do you want to ride", class: "form-control" %>
+      </div>
+      <div class="col-md-2">
+        <%= text_field_tag :start_date, params[:start_date], placeholder: "Start Date", class: "form-control" %>
+      </div>
+      <div class="col-md-2">
+        <%= text_field_tag :end_date, params[:end_date], placeholder: "End Date", class: "form-control" %>
+      </div>
+      <div class="col-md-2">
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+
+<script>
+$(function(){
+  $("#start_date").datepicker({
+    dateFormat: 'dd-mm-yy',
+    minDate: 0,
+    maxDate: "3m",
+    onSelect: funtion(selected) {
+      $('#end_date').datepicker("option", "minDate", selected);
+      $('#end_date').attr('disabled', false);
+    }
+  });
+  $("#end_date").datepicker({
+    dateFormat: 'dd-mm-yy',
+    minDate: 0,
+    maxDate: "3m",
+    onSelect: funtion(selected) {
+      $('#start_date').datepicker("option", "maxDate", selected);
+    }
+  });
+})
+</script>
