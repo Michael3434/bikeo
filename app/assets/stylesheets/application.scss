@@ -325,6 +325,27 @@ input[type="checkbox"]:checked:before {
     font-size: 12px;
 }
 
+.reservation-table td {
+  width: 100%;
+  border: 1px solid #dce0e0;
+  padding: 10px;
+}
+
+.wide {
+  width: 100%;
+}
+
+.price_tag {
+  background-color: #606567;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.price_tag span {
+  float: left;
+}
 
 .accessories li {
   margin-bottom: 10px;

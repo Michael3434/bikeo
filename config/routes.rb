@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :bikes do
     resources :reservations, only: [:create]
   end
+  get '/preload' => 'reservations#preload'
+  get '/preview' => 'reservations#preview'
 
 end
 

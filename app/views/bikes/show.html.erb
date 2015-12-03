@@ -49,16 +49,15 @@
 
 
                 <!-- Reservation -->
-                <% if current_user == @bike.user%>
 
-                  <div class="col-md-6">
-                    <%= link_to "Update", edit_bike_path(@bike), class: "btn btn-danger" %>
-                  </div>
-                <% else %>
+
                   <div class="col-md-6">
                   <%= render 'reservations/form' %>
                   </div>
-                <% end %>
+                  <div class="col-md-6">
+                    <%= link_to "Update", edit_bike_path(@bike), class: "btn btn-danger" %>
+                  </div>
+
 
               </div>
 
