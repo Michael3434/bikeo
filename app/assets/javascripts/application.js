@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require toastr
 //= require turbolinks
+//= require jquery-ui/datepicker
 //= require_tree .

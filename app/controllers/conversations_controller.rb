@@ -5,11 +5,12 @@ class ConversationsController < ApplicationController
   def index
     @users = User.all
     @conversations = Conversation.involving(current_user)
-
+    delete_empty_conversations
     set_messages_unread
   end
 
 def create
+
   if Conversation.between(params[:sender_id], params[:recipient_id]).present?
 
     @conversation = Conversation.between(params[:sender_id], params[:recipient_id]).first
@@ -20,6 +21,12 @@ def create
 end
 
   private
+
+  def delete_empty_conversations
+    @conversations.each do |conv|
+      conv.destroy if conv.messages.empty?
+    end
+  end
 
   def conversation_params
     params.permit(:sender_id, :recipient_id)
