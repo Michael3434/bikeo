@@ -13,12 +13,15 @@ Rails.application.routes.draw do
   end
 
   resources :photos
+  resources :reservations
 
   resources :bikes do
     resources :reservations, only: [:create]
   end
   get '/preload' => 'reservations#preload'
   get '/preview' => 'reservations#preview'
+
+  get '/search' => 'pages#search'
 
 end
 
