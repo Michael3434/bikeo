@@ -13,7 +13,7 @@ private
 
 def reservation_params
 
-  params.require(:reservation).permit(:start_date, :end_date, :price, :total, :room_id)
+  params.require(:reservation).permit(:start_date, :end_date, :price, :total, :bike_id)
 
 end
 
