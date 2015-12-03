@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require fileinput
 //= require jquery_ujs
 //= require toastr
 //= require turbolinks
