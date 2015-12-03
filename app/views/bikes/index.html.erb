@@ -20,7 +20,10 @@
             </div>
             <div class="col-md-3 right">
               <%= link_to "Show", bike_path(bike), class: "btn btn-primary" %>
-              <%= link_to "Delete", bike_path(bike), class: "btn btn-danger", method: :delete %>
+              <%= link_to "Edit", edit_bike_path(bike), class: "btn btn-primary" %>
+              <%= link_to bike_path(bike), method: :delete do %>
+              <i class="fa fa-times fa-2x delete_cross"></i>
+              <% end %>
             </div>
 
           </div>

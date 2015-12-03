@@ -360,3 +360,9 @@ input[type="checkbox"]:checked:before {
 .text-line-through {
 text-decoration: line-through;
 }
+
+.delete_cross {
+  color: #FF777B;
+  position: relative;
+  top: 5px;
+}

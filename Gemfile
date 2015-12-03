@@ -24,6 +24,8 @@ gem 'puma',           group: :production
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'geocoder'
+
 gem 'paperclip'
 
 gem 'jquery-ui-rails'
