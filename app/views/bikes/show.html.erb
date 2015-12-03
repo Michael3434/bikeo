@@ -3,7 +3,7 @@
     <!-- Image -->
     <div class="row">
       <div class="col-md-12 text-center">
-        <%= image_tag @photos[0].image.url(), class: "pico img-responsive" %>
+        <%= image_tag @photos[0].image.url(), class: "pico img-responsive" if !@photos.empty? %>
       </div>
     </div>
 
@@ -92,7 +92,7 @@
                 <li class="<%= 'text-line-through' if @bike.is_helmet %>">Helmet</li>
                 <li class="<%= 'text-line-through' if @bike.is_lock %>">Locker</li>
                 <li class="<%= 'text-line-through' if @bike.is_lights %>">Lights</li>
-                <li class="<%= 'text-line-through' if @bike.is_bell %>">bell</li>
+                <li class="<%= 'text-line-through' if @bike.is_bell %>">Bell</li>
               </ul>
             </div>
             <div class="col-md-6">
@@ -108,13 +108,15 @@
         </div>
       </div>
 
+      <hr>
+
       <!--Carousel-->
-      <div class="row">
-        <div class="col-md-10 col-md-offset">
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
+      <div class="row pico">
+        <div class="col-md-10 col-md-offset-1">
+          <div id="myCarousel" class="carousel slide " data-ride="carousel" >
             <% if @photos %>
-              <ol class="carousel-indicators">
+            <!-- Indicators -->
+              <ol class="carousel-indicators ">
                 <% @photos.each do |photo| %>
                 <li data-target="#myCarousel" data-slide-to="<%= photo.id %>"></li>
                 <% end %>
@@ -125,8 +127,8 @@
             <div class="carousel-inner" role="listbox">
              <% if @photos %>
               <% @photos.each do |photo| %>
-              <div class="item <%= @photo %>">
-                <%= image_tag photo.image.url() %>
+              <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                <%= image_tag photo.image.url(), class: "pico" %>
               </div>
                 <% end %>
               <% end %>
