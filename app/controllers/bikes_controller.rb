@@ -1,5 +1,5 @@
 class BikesController < ApplicationController
-before_action :set_bike, only: [:edit,:update, :show]
+before_action :set_bike, only: [:edit,:update, :show, :destroy]
 before_action :authenticate_user!, except: [:show]
 
   def index
@@ -13,6 +13,11 @@ before_action :authenticate_user!, except: [:show]
   def new
     @bike = Bike.new
 
+  end
+
+  def destroy
+    @bike.destroy
+    redirect_to bikes_path
   end
 
   def create
