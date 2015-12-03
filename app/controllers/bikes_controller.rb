@@ -12,24 +12,35 @@ before_action :authenticate_user!, except: [:show]
 
   def new
     @bike = Bike.new
+
   end
 
   def create
-    @bike = Bike.new(bike_params)
+    @bike = current_user.bikes.build(bike_params)
+
     if @bike.save
+       if params[:image]
+        params[:image].each do |image|
+            @bike.photos.create(image: image)
+          end
+        end
       redirect_to root_path, notice: "Saved..."
     else
-      raise
       render :new
     end
   end
 
   def edit
-    @bike.update(bike_params)
+    @photos = @bike.photos
   end
 
   def update
     if @bike.update(bike_params)
+      if params[:image]
+        params[:image].each do |image|
+            @bike.photos.create(image: image)
+          end
+        end
     redirect_to @bike, notice: "Updated..."
     else
       render :edit

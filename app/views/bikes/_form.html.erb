@@ -5,7 +5,7 @@
   </div>
   <div class="panel-body">
     <div class="container">
-      <%= form_for @bike do |f| %>
+      <%= form_for @bike, html: {multipart: true} do |f| %>
       <h3> Bike </h3>
 
         <div class="row">
@@ -164,6 +164,26 @@
           </div>
 
         </div>
+
+
+
+        <!--This is the upload_a_photo code -->
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <span class="btn btn-default btn-file">
+                <i class="fa fa-cloud-upload fa-lg"></i>Upload Photos
+                <%= file_field_tag "image[]", type: :file, multiple: true %>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div id="photos"><%= render 'photos/list' %></div>
+
+        <!--submit and save-->
+
         <div class="actions">
         <%= f.submit "Save", class: "btn btn-primary" %>
         </div>

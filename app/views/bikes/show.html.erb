@@ -20,44 +20,45 @@
             <div class="col-md-9 text-center">
               <div class="row">
                 <div class="col-md-6">
-                  <h4><%= @bike.title %></h4>
+                  <h2><strong><%= @bike.title %></strong></h2>
                   <div class="row text-center row-space-1">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                   <div>
                     <i class="fa fa-bicycle"></i>
                   </div>
                   <div>
-                    <%= @bike.category %>
+                    <%= @bike.category == "Other"? "special bike" : @bike.category  %>
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                   <i class="fa fa-tachometer"></i>
                   <div>
-                    <%= @bike.category %>
+                    <%= pluralize( @bike.speed, 'gear') %>
+
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                   <i class="fa fa-cogs"></i>
                  <div>
-                    <%= @bike.category %>
+                   <%= pluralize( @bike.chain_wheel, 'chain wheel') %>
                   </div>
                 </div>
-                <div class="col-sm-6">
-                  <div>
-                    <i class="fa fa-magic"></i>
-                    <div>
-                    <%= @bike.category %>
-                  </div>
-                  </div>
-                </div>
+
               </div>
                 </div>
 
 
                 <!-- Reservation -->
-                <div class="col-md-6">
+                <% if current_user == @bike.user%>
+
+                  <div class="col-md-6">
+                    <%= link_to "Update", edit_bike_path(@bike), class: "btn btn-danger" %>
+                  </div>
+                <% else %>
+                  <div class="col-md-6">
                   <%= render 'reservations/form' %>
-                </div>
+                  </div>
+                <% end %>
 
               </div>
 
@@ -72,10 +73,79 @@
       <!-- About -->
       <div class="row">
         <div class="col-md-12">
-          <h2>About this listing</h2>
+          <h4>About this listing.</h4>
           <p><%= @bike.description %></p>
         </div>
       </div>
+
+      <hr>
+
+      <!--Amenities -->
+      <div class="row">
+        <div class="col-md-2">
+          <p>Accessories</p>
+        </div>
+        <div class="col-md-10">
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="accessories">
+                <li class="<%= 'text-line-through' if @bike.is_helmet %>">Helmet</li>
+                <li class="<%= 'text-line-through' if @bike.is_lock %>">Locker</li>
+                <li class="<%= 'text-line-through' if @bike.is_lights %>">Lights</li>
+                <li class="<%= 'text-line-through' if @bike.is_bell %>">bell</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="accessories">
+                <li class="<%= 'text-line-through' if @bike.is_reflectors %>">reflectors</li>
+                <li class="<%= 'text-line-through' if @bike.is_baskets %>">baskets</li>
+                <li class="<%= 'text-line-through' if @bike.is_trailers %>">trailers</li>
+              </ul>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--Carousel-->
+      <div class="row">
+        <div class="col-md-10 col-md-offset">
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <% if @photos %>
+              <ol class="carousel-indicators">
+                <% @photos.each do |photo| %>
+                <li data-target="#myCarousel" data-slide-to="<%= photo.id %>"></li>
+                <% end %>
+              </ol>
+            <% end %>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+             <% if @photos %>
+              <% @photos.each do |photo| %>
+              <div class="item <%= @photo %>">
+                <%= image_tag photo.image.url() %>
+              </div>
+                <% end %>
+              <% end %>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
 <!--Closure  -->
   </div>
 </div>
