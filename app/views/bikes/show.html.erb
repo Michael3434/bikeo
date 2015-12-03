@@ -89,17 +89,17 @@
           <div class="row">
             <div class="col-md-6">
               <ul class="accessories">
-                <li class="<%= 'text-line-through' if @bike.is_helmet %>">Helmet</li>
-                <li class="<%= 'text-line-through' if @bike.is_lock %>">Locker</li>
-                <li class="<%= 'text-line-through' if @bike.is_lights %>">Lights</li>
-                <li class="<%= 'text-line-through' if @bike.is_bell %>">Bell</li>
+                <li class="<%= 'text-line-through' if !@bike.is_helmet %>">Helmet</li>
+                <li class="<%= 'text-line-through' if !@bike.is_lock %>">Locker</li>
+                <li class="<%= 'text-line-through' if !@bike.is_lights %>">Lights</li>
+                <li class="<%= 'text-line-through' if !@bike.is_bell %>">Bell</li>
               </ul>
             </div>
             <div class="col-md-6">
               <ul class="accessories">
-                <li class="<%= 'text-line-through' if @bike.is_reflectors %>">reflectors</li>
-                <li class="<%= 'text-line-through' if @bike.is_baskets %>">baskets</li>
-                <li class="<%= 'text-line-through' if @bike.is_trailers %>">trailers</li>
+                <li class="<%= 'text-line-through' if !@bike.is_reflectors %>">reflectors</li>
+                <li class="<%= 'text-line-through' if !@bike.is_baskets %>">baskets</li>
+                <li class="<%= 'text-line-through' if !@bike.is_trailers %>">trailers</li>
               </ul>
 
             </div>
