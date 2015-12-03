@@ -3,7 +3,7 @@ before_action :set_bike, only: [:edit,:update, :show, :destroy]
 before_action :authenticate_user!, except: [:show]
 
   def index
-    @bikes = Bike.all
+    @bikes = Bike.where(user: current_user)
   end
 
    def show

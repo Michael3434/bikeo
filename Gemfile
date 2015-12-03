@@ -28,6 +28,8 @@ gem 'geocoder'
 
 gem 'paperclip'
 
+gem 'ransack'
+
 gem 'jquery-ui-rails'
 
 gem 'turbolinks'
