@@ -1,5 +1,5 @@
 class BikesController < ApplicationController
-before_action :set_room, only: [:edit,:update]
+before_action :set_bike, only: [:edit,:update, :show]
 before_action :authenticate_user!, except: [:show]
 
   def index
@@ -17,7 +17,7 @@ before_action :authenticate_user!, except: [:show]
   def create
     @bike = Bike.new(bike_params)
     if @bike.save
-      redirect_to bike_path(@bike), notice: "Saved..."
+      redirect_to root_path, notice: "Saved..."
     else
       raise
       render :new

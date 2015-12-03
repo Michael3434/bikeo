@@ -11,7 +11,7 @@ Bike.destroy_all
 x = 1
 3.times do
   bike = Bike.create(
-    user_id: rand(3..4),
+    user_id: rand(1..1),
     category: "momo",
     size: "big",
     title: "French bike",

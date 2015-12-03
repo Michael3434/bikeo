@@ -4,11 +4,7 @@ class ConversationsController < ApplicationController
 
   def index
     @users = User.all
-    @conversations = Conversation.involving(current_user).select do |conversation|
-      empty = conversation.empty?
-      conversation.delete if empty
-      !empty
-    end
+    @conversations = Conversation.involving(current_user)
 
     set_messages_unread
   end
