@@ -11,6 +11,12 @@ class User < ActiveRecord::Base
   has_many :bikes
   has_many :messages
 
+  after_create :send_welcome_email
+
+  def send_welcome_email
+     UserMailer.welcome(self).deliver_now
+  end
+
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
 

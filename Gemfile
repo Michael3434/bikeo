@@ -26,6 +26,8 @@ gem 'omniauth-facebook'
 
 gem 'paperclip'
 
+gem "letter_opener", group: :development
+
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
