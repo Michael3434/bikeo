@@ -14,5 +14,9 @@ Rails.application.routes.draw do
 
   resources :photos
 
+  resources :bikes do
+    resources :reservations, only: [:create]
+  end
+
 end
 

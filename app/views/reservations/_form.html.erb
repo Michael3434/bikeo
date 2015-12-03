@@ -1,0 +1,10 @@
+<%= form_for ([@bike, @bike.reservations.new]) do |f| %>
+<%= f.text_field :start_date %>
+<%= f.text_field :end_date %>
+<%= f.hidden_field :bike_id, value: @bike.id %>
+<%= f.hidden_field :price, value: @bike.price_day %>
+<br>
+
+<%= f.submit "Book Now", class: "btn btn-primary" %>
+
+<% end %>

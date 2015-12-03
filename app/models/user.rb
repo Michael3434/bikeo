@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :bikes
   has_many :messages
+  has_many :reservations
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first

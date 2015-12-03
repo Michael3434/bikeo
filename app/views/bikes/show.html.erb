@@ -18,9 +18,11 @@
             </div>
 
             <div class="col-md-9 text-center">
-              <h4><%= @bike.title %></h4>
-              <div class="row text-center row-space-1">
-                <div class="col-sm-3">
+              <div class="row">
+                <div class="col-md-6">
+                  <h4><%= @bike.title %></h4>
+                  <div class="row text-center row-space-1">
+                    <div class="col-sm-6">
                   <div>
                     <i class="fa fa-bicycle"></i>
                   </div>
@@ -28,18 +30,37 @@
                     <%= @bike.category %>
                   </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                   <i class="fa fa-tachometer"></i>
+                  <div>
+                    <%= @bike.category %>
+                  </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                   <i class="fa fa-cogs"></i>
+                 <div>
+                    <%= @bike.category %>
+                  </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                   <div>
                     <i class="fa fa-magic"></i>
+                    <div>
+                    <%= @bike.category %>
+                  </div>
                   </div>
                 </div>
               </div>
+                </div>
+
+
+                <!-- Reservation -->
+                <div class="col-md-6">
+                  <%= render 'reservations/form' %>
+                </div>
+
+              </div>
+
             </div>
 
 
