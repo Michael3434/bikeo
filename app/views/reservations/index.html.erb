@@ -1,40 +1,42 @@
 <div class="row">
-  <div class="col-md-12">
-
+  <div class="col-md-3">
+    <ul class= "sidebar-list">
+      <li class="sidebar-item"><%= link_to "Your Bikes", bikes_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Rides", reservations_path, class: "sidebar-link active" %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
     <div class="panel panel-default">
-      <div class="panel-heading">Your conversations</div>
+      <div class="panel-heading">
+     Your Rides
+      </div>
       <div class="panel-body">
-        <div class="container">
-          <% @conversations.each do |conversation| %>
-            <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %>
-            <%= link_to conversation_messages_path(conversation) do %>
-            <div class="row conversation">
-              <div class="col-md-2">
-                <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %>
-              </div>
-              <div class="col-md-2">
-                <%= other.fullname %><br>
-                <%= conversation.messages.last.message_time %>
-              </div>
-              <div class="col-md-8">
-                <%= conversation.messages.last.content %>
-              </div>
-
+        <% @reservations.each do |reservation| %>
+          <div class="row">
+            <div class="col-md-2">
+              <%= image_tag avatar_url(reservation.bike.user) %>
             </div>
-            <% end %>
-          <% end %>
-        </div>
+            <div class="col-md-3">
+              <h4><%= reservation.reservation_time %></h4>
+            </div>
+            <div class="col-md-2">
+              <h4><%= reservation.lentgh_time %> Days</h4>
+            </div>
+            <div class="col-md-2">
+              <h4><%= reservation.total %>$</h4>
+            </div>
+            <div class="col-md-3 right">
+              <%= link_to "Show", bike_path(reservation.bike), class: "btn btn-primary" %>
+              <%= link_to reservation_path(reservation), method: :delete do %>
+              <i class="fa fa-times fa-2x delete_cross"></i>
+              <% end %>
+            </div>
+
+          </div>
+          <hr>
+        <% end %>
+
       </div>
     </div>
-
-    <h3>All users</h3>
-    <% @users.each do |user| %>
-      <% if user != current_user %>
-      <%= user.fullname %>
-      <%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
-      <% end %>
-      <br>
-    <% end %>
-
   </div>
 </div>

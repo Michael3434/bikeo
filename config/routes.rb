@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :photos
+  resources :reservations
 
   resources :bikes do
     resources :reservations, only: [:create]
