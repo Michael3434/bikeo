@@ -29,6 +29,7 @@ gem 'geocoder'
 gem 'paperclip'
 
 gem 'ransack'
+gem 'aws-sdk', '< 2.0'
 
 gem 'jquery-ui-rails'
 
