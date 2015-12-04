@@ -9,8 +9,15 @@
       </button>
       <%= link_to "BikiT", root_path, class: "navbar-brand" %>
     </div>
-    <div id="navbar" class="navbar-collapse collapse navbar-right">
-      <ul class="nav navbar-nav">
+    <div id="navbar" class="navbar-collapse collapse">
+
+      <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
+      <div class="form-group">
+        <%= text_field_tag :search, params[:search], placeholder: "Where to ride ?", class: "form-control" %>
+        <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
+      </div>
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
         <% if(!user_signed_in?) %>
           <li><%= link_to "Log in", new_user_session_path %></li>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
