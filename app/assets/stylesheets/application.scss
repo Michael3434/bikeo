@@ -386,3 +386,45 @@ text-decoration: line-through;
 #article {
   width: 560px;
 }
+
+.btn-search {
+  background-color: #ff777b;
+  border-color: #ff777b;
+  margin-left: 20px;
+
+}
+
+#search {
+  padding-right: 70px;
+}
+
+input::-webkit-input-placeholder {
+   padding-right: 50px;
+}
+
+
+input:-moz-placeholder {
+    padding-right: 50px;
+}
+
+.banner {
+  background: image-url('bikes/bike31.jpg');
+  padding: 120px 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container-off {
+  width: 100% !important;
+}
+
+.bg-title {
+    color: white;
+    font-family: helvetica;
+    font-size: 40px;
+}
+
+.margin-left {
+    margin-left: 244px;
+}
+

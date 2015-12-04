@@ -161,7 +161,7 @@
       <h3>Near By</h3>
       <div class="row">
         <% if !@bike.nearbys(10).nil?  %>
-        <% for bike in @bike.nearbys(10) %>
+        <% for bike in @bike.nearbys(10).limit(3) %>
          <%= link_to bike do %>
         <div class="col-md-4">
           <div class="panel panel-default ">
@@ -174,8 +174,8 @@
           </div>
         </div>
         <% end %>
-        <% end %>
-        <% end %>
+      <% end %>
+    <% end %>
       </div>
 
 <!--Closure  -->
@@ -195,7 +195,7 @@
         var mapCanvas = document.getElementById('map');
         var mapOptions = {
           center: new google.maps.LatLng(<%= @bike.latitude %>, <%= @bike.longitude %>),
-          zoom: 14,
+          zoom: 8,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(mapCanvas, mapOptions);
