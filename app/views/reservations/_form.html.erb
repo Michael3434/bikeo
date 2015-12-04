@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-12 price_tag">
-    <span>$<%= @bike.price_hour %></span>
+    <span>$<%= @bike.price_day %></span>
     <span class="pull-right">Per day</span>
   </div>
 </div>
@@ -102,7 +102,7 @@ $(function() {
                   $("#preview").show();
                   $("#btn_book").attr('disabled', false);
 
-                  var total = days * <%= @bike.price_hour %>
+                  var total = days * <%= @bike.price_day %>
                   $('#reservation_days').text(days);
                   $('#reservation_sum').text(total);
                   $('#reservations_total').val(total);
@@ -141,7 +141,7 @@ $(function() {
                   $("#preview").show();
                   $("#btn_book").attr('disabled', false);
 
-                  var total = days * <%= @bike.price_hour %>
+                  var total = days * <%= @bike.price_day %>
                   $('#reservation_days').text(days);
                   $('#reservation_sum').text(total);
                   $('#reservations_total').val(total);
