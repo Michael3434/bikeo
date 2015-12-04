@@ -159,7 +159,7 @@
       <!--Near by -->
       <h3>Near By</h3>
       <div class="row">
-        <% for bike in @bike.nearbys(10) %>
+        <% for bike in @bike.nearbys(10).limit(3) %>
          <%= link_to bike do %>
         <div class="col-md-4">
           <div class="panel panel-default ">
