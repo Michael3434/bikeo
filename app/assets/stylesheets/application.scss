@@ -386,3 +386,23 @@ text-decoration: line-through;
 #article {
   width: 560px;
 }
+
+.btn-search {
+  background-color: #ff777b;
+  border-color: #ff777b;
+  margin-left: 20px;
+
+}
+
+#search {
+  padding-right: 70px;
+}
+
+input::-webkit-input-placeholder {
+   padding-right: 50px;
+}
+
+
+input:-moz-placeholder {
+    padding-right: 50px;
+}

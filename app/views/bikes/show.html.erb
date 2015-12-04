@@ -159,19 +159,21 @@
       <!--Near by -->
       <h3>Near By</h3>
       <div class="row">
-        <% for bike in @bike.nearbys(10) %>
-         <%= link_to bike do %>
-        <div class="col-md-4">
-          <div class="panel panel-default ">
-            <div class="panel-heading preview">
-              <%= image_tag bike.photos[0].image.url(:medium) %>
-            </div>
-            <div class="panel-body">
-              <%= bike.distance.round(2) %> miles away
-            </div>
-          </div>
-        </div>
-        <% end %>
+        <% if !@bike.nearbys(10).nil? %>
+          <% for bike in @bike.nearbys(10)  %>
+            <%= link_to bike do %>
+              <div class="col-md-4">
+                <div class="panel panel-default ">
+                  <div class="panel-heading preview">
+                    <%= image_tag bike.photos[0].image.url(:medium) %>
+                  </div>
+                  <div class="panel-body">
+                    <%= bike.distance.round(2) %> miles away
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
 
@@ -192,7 +194,7 @@
         var mapCanvas = document.getElementById('map');
         var mapOptions = {
           center: new google.maps.LatLng(<%= @bike.latitude %>, <%= @bike.longitude %>),
-          zoom: 14,
+          zoom: 8,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(mapCanvas, mapOptions);
