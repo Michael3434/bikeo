@@ -408,12 +408,23 @@ input:-moz-placeholder {
 }
 
 .banner {
-  background: url(http://bikeo.s3.amazonaws.com/development/photos/images/000/000/029/original/bike1.jpg?1449239405);
+  background: image-url('bikes/bike31.jpg');
   padding: 120px 0;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .container-off {
-  width: 100%;
+  width: 100% !important;
 }
+
+.bg-title {
+    color: white;
+    font-family: helvetica;
+    font-size: 40px;
+}
+
+.margin-left {
+    margin-left: 244px;
+}
+
