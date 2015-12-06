@@ -28,7 +28,8 @@ body {
 }
 
 .navbar-default .navbar-brand {
-  color: #ff5a5f;
+  color: black;
+  font-family: roboto;
   font-size: 2em;
   font-weight: 400;
 }
@@ -362,7 +363,7 @@ text-decoration: line-through;
 }
 
 .delete_cross {
-  color: #FF777B;
+  color: #1ED760;
   position: relative;
   top: 5px;
 }
@@ -387,12 +388,21 @@ text-decoration: line-through;
   width: 560px;
 }
 
-.btn-search {
-  background-color: #ff777b;
-  border-color: #ff777b;
-  margin-left: 20px;
+.btn-search, .btn-search:hover {
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 500px;
+  padding: 7px 35px;
+  background-color: #1ED760;
+  color: white;
+  border-color: #1ED760;
 
 }
+
+.btn-search:hover {
+  opacity: 0.5;
+}
+
 
 #search {
   padding-right: 70px;

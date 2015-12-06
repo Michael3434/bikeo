@@ -10,11 +10,16 @@
       <%= link_to "BikiT", root_path, class: "navbar-brand" %>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-
       <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
       <div class="form-group">
-        <%= text_field_tag :search, params[:search], placeholder: "Where to ride ?", class: "form-control" %>
-        <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
+         <%= hidden_field_tag :search, params[:search], value: "Brussels", placeholder: "Where do you want to ride", class: "form-control" %>
+        <%= submit_tag "Brussels", class: "btn btn-primary btn-search" %>
+      </div>
+      <% end %>
+      <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
+      <div class="form-group">
+         <%= hidden_field_tag :search, params[:search], value: "Paris", placeholder: "Where do you want to ride", class: "form-control" %>
+        <%= submit_tag "Paris", class: "btn btn-primary btn-search" %>
       </div>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
