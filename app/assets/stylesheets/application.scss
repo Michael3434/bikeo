@@ -2,6 +2,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
+@import "pages/*";
+@import "shared/*";
 
 body {
   color: #565a5c;
@@ -23,16 +25,6 @@ body {
   font-weight: 400;
 }
 
-.navbar-default {
-  background-color: #FFF;
-}
-
-.navbar-default .navbar-brand {
-  color: black;
-  font-family: roboto;
-  font-size: 2em;
-  font-weight: 400;
-}
 
 .row-space-1 {
   margin-top: 6px;
@@ -415,13 +407,6 @@ input::-webkit-input-placeholder {
 
 input:-moz-placeholder {
     padding-right: 50px;
-}
-
-.banner {
-  background: image-url('bikes/bike31.jpg');
-  padding: 120px 0;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .container-off {

@@ -7,4 +7,12 @@ module ApplicationHelper
     "https://s.gravatar.com/avatar/#{gravatar_id}?s=150"
     end
   end
+
+  def navbar_bg
+    if controller_name == "pages" && action_name == "home"
+      "transparent"
+    else
+      "normal"
+    end
+  end
 end

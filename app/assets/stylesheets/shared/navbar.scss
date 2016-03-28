@@ -1,0 +1,23 @@
+.navbar-default.transparent {
+  background-color: transparent;
+  border: none;
+  .navbar-brand {
+    color: white;
+    font-size: 30px;
+  }
+  .navbar-right li a {
+    color: white;
+  }
+  .navbar-btn {
+    margin-top: 14px;
+    .btn-action {
+      background-color: #5cbc50;
+      padding: 8px 26px;
+      border-radius: 5px;
+    }
+  }
+}
+
+.navbar-default {
+
+}

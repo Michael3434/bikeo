@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top <%= navbar_bg %>">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -51,9 +51,11 @@
         <% end %>
       </li>
       <li>
-        <%= link_to new_bike_path do %>
-        <i class="fa fa-home fa-lg"></i>&nbsp;Post A Bike
-        <% end %>
+        <div class="navbar-btn">
+          <%= link_to new_bike_path, class: "btn-action" do %>
+          List a ride
+          <% end %>
+        </div>
       </li>
       </ul>
     </div><!--/.nav-collapse -->
