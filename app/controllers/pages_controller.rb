@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    @bike = Bike.all
+    @search = Search.new
     @conversations = Conversation.involving(current_user) if current_user
     set_messages_unread
   end

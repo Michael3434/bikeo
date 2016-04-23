@@ -1,65 +1,21 @@
-<div class="banner">
-  <div class="banner-content">
-    <h1 class="bg-title">Rent a bike from someone like you</h1>
+<%= content_tag :section, class: "hero" do %>
+  <div class="hero-info">
+    <h1>Rent a bike from someone like you</h1>
     <h3>Save money, meet awesome people, and consume less</h3>
-   <%= form_tag search_path, method: :get do %>
-   <div class="row">
-     <div class="col-md-6 text-right">
-       <%= hidden_field_tag :search, params[:search], value: "Brussels", placeholder: "Where do you want to ride", class: "form-control" %>
-       <%= submit_tag "Bruxelles", class: "btn btn-primary btn-search" %>
-       <% end %>
-     </div>
-      <div class="col-md-6 text-left">
-        <%= form_tag search_path, method: :get do %>
-          <%= hidden_field_tag :search, params[:search], value: "Paris", placeholder: "Where do you want to ride", class: "form-control" %>
-          <%= submit_tag "Paris", class: "btn btn-primary btn-search" %>
-        <% end %>
-      </div>
+    <div class="search-container">
+      <%= simple_form_for @search, url: search_path, wrapper: :inline_form, html: { class: "form-inline", method: :get } do |f| %>
+        <%= f.hidden_field :locality, value: "Paris", name: "locality" %>
+        <div class="form-group search_locality">
+          <span class="search_locality-icon"><i class="ion-ios-location"></i></span>
+          <%= f.input_field :locality, value: "Paris, France", disabled: true, class: "form-control input-lg", name: "locality" %>
+        </div>
+        <div class="form-group search_date">
+          <span class="search_date-icon"><i class="fa fa-calendar"></i></span>
+          <%= f.input_field :date, placeholder: "Quand ?", class: "form-control input-lg", name: "date" %>
+        </div>
+        <%= button_tag "Rechercher", class: "btn btn-lg btn-secondary", name: nil %>
+      <% end %>
     </div>
   </div>
-</div>
+<% end %>
 
-
-  <!--   <div class="row">
-      <% @bike.take(15).each do |b|  %>
-      <div class="col-xs-12 col-sm-4">
-      <%= link_to bike_path(b) do %>
-            <div class="card">
-              <% if !b.photos.empty? %>
-              <span class="card-bg" style="background-image: url('<%= b.photos.first.image.url() %>')"></span>
-              <% end %>
-              <span class="card-shadow"></span>
-              <span class="card-description">Popular</span>
-              <span class="card-text">
-                <h2> <%= b.category %></h2>
-                <p> <%= b.title %></p>
-              </span>
-              <span class="card-user">
-              <% if current_user %>
-                <%= image_tag avatar_url(b.user), class: "img-circle avatar-medium" %>
-              <% end %>
-              </span>
-            </div>
-          <% end %>
-          </div>
-        <% end %> -->
-<!--
-// $(function(){
-//   $("#start_date").datepicker({
-//     dateFormat: 'dd-mm-yy',
-//     minDate: 0,
-//     maxDate: "3m",
-//     onSelect: funtion(selected) {
-//       $('#end_date').datepicker("option", "minDate", selected);
-//       $('#end_date').attr('disabled', false);
-//     }
-//   });
-//   $("#end_date").datepicker({
-//     dateFormat: 'dd-mm-yy',
-//     minDate: 0,
-//     maxDate: "3m",
-//     onSelect: funtion(selected) {
-//       $('#start_date').datepicker("option", "maxDate", selected);
-//     }
-//   });
-// }) -->

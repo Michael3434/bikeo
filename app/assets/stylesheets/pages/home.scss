@@ -1,34 +1,169 @@
-.banner {
-  background: image-url('bikes/bg.jpg');
-  color: white;
-  text-align: center;
-  min-height: 400px;
+// .banner {
+//   background: image-url('bikes/bg.jpg');
+//   color: white;
+//   text-align: center;
+//   min-height: 400px;
+//   height: 100vh;
+//   /* if you have a 70px navbar => height: calc(100vh - 70px); */
+//   background-size: cover !important;
+//   display: flex;
+//   align-items: center;
+//   z-index: 1;
+//   background-position: center bottom;
+//   justify-content: center;
+//   h1 {
+//     font-size: 48px;
+//     font-weight: 400;
+//     font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+//   }
+//   h3 {
+//     margin-top: 5px;
+//     font-weight: 300;
+//     font-size: 22px;
+//   }
+// }
+// .banner p {
+//   font-size: 20px;
+//   font-weight: lighter;
+//   color: rgba(255, 255, 255, 0.7);
+//   margin-bottom: 20px;
+// }
+
+// .container-cards {
+//   margin: 20px 0px;
+// }
+
+.hero {
+  position: relative;
   height: 100vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
-  display: flex;
-  align-items: center;
+  min-height: 400px;
   z-index: 1;
-  background-position: center bottom;
-  justify-content: center;
-  h1 {
-    font-size: 48px;
-    font-weight: 400;
-    font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  background-position: center;
+  background-size: cover;
+  background-image: image-url('bikes/bg.jpg');
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $brand-primary;
+    opacity: 0.4;
   }
-  h3 {
-    margin-top: 5px;
-    font-weight: 300;
-    font-size: 22px;
+  .hero-info {
+    @include vertical-align(relative);
+    text-align: center;
+    z-index: 100;
+    h1 {
+      font-size: 50px;
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: white;
+      font-weight: 400;
+      letter-spacing: -1px;
+      @include bp-medium {
+        font-size: 40px;
+      }
+      @include bp-small {
+        font-size: 35px;
+        padding: 20px 20px 0 20px;
+        margin-bottom: 20px;
+      }
+    }
+    h3 {
+      font-size: 25px;
+      font-weight: 300;
+      letter-spacing: -0.5px;
+      color: white;
+      @include bp-medium {
+        font-size: 23px;
+        font-weight: 400;
+      }
+      @include bp-small {
+        font-size: 18px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
   }
-}
-.banner p {
-  font-size: 20px;
-  font-weight: lighter;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 20px;
 }
 
-.container-cards {
-  margin: 20px 0px;
+.search-container {
+  padding: 25px;
+  margin-top: 40px;
+  display: inline-block;
+  border-radius: 2px;
+  background-color: rgba(black, 0.5);
+  @include bp-small {
+    margin-top: 20px;
+  }
+  #new_search {
+    font-size: 0;
+    .form-control {
+      color: $gray;
+      font-weight: 400;
+      border-radius: 0;
+      font-size: 16px;
+      padding: 10px;
+    }
+    .form-group {
+      font-size: $font-size-large;
+      position: relative;
+    }
+    .search_locality {
+      .search_locality-icon {
+        position: absolute;
+        font-size: 18px;
+        top: 8px;
+        left: 10px;
+        color: $gray;
+      }
+      input {
+        padding-left: 25px;
+        background-color: white;
+        @include border-left-radius(2px);
+      }
+    }
+    .search_date {
+      position: relative;
+      margin-left: -1px;
+      margin-right: -1px;
+      width: 170px;
+      @include bp-small {
+        width: 100%;
+      }
+      .search_date-icon {
+        position: absolute;
+        font-size: 18px;
+        top: 8px;
+        left: 10px;
+        color: $gray;
+      }
+      input {
+        padding-left: 33px;
+      }
+    }
+    .search_guests {
+      font-size: 16px;
+      #search_guests {
+        line-height: 16px;
+        width: 200px;
+      }
+      @include bp-small {
+        width: 100%;
+        #search_guests {
+          width: 100%;
+        }
+      }
+    }
+    button[type=submit] {
+      padding: 10px 25px;
+      @include border-left-radius(0);
+      @include border-right-radius(2px);
+      @include bp-small {
+        width: 100%;
+      }
+    }
+  }
 }

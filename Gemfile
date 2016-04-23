@@ -26,7 +26,11 @@ gem 'omniauth-facebook'
 
 gem 'geocoder'
 
+gem 'simple_form'
+
 gem 'paperclip'
+
+gem 'virtus'
 
 gem 'ransack'
 gem 'aws-sdk', '< 2.0'

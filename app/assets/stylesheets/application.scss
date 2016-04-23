@@ -1,9 +1,11 @@
-
+@import "variables";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
+@import "mixins/*";
 @import "pages/*";
 @import "shared/*";
+
 
 body {
   color: #565a5c;
