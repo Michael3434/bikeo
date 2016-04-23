@@ -6,6 +6,7 @@ class Search
   include ActiveModel::Validations
 
   attribute :date
+  attribute :guests
   attribute :locality
   attribute :zipcode, String
   attribute :distance, Integer
