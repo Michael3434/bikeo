@@ -1,9 +1,27 @@
-.navbar-default.transparent {
+.navbar {
   background-color: transparent;
   border: none;
+  height: 61px;
+  border-bottom: 1px solid #dce0e0;
+  .navbar-header {
+    height: 61px;
+    line-height: 61px;
+    position: relative;
+    .navbar-brand {
+      height: 61px;
+      color: #5cbc50;
+      top: 7px;
+      position: relative;
+    }
+  }
   .navbar-brand {
     color: white;
+    float: left;
+    padding: 14.5px 10px;
     font-size: 30px;
+    line-height: 21px;
+    height: 50px;
+    margin-left: 30px !important;
   }
   .navbar-right li a {
     color: white;
@@ -11,9 +29,14 @@
   .navbar-btn {
     margin-top: 14px;
     .btn-action {
-      background-color: #5cbc50;
-      padding: 8px 26px;
-      border-radius: 5px;
+      background-color: transparent;
+      color: #5cbc50;
+      font-weight: 500;
+      border-color: #c4c4c4;
+      padding: 5px 51px;
+      border-radius: 2px;
+      border: 2px solid #5cbc50;
+      margin-right: 50px;
     }
   }
 }

@@ -3,11 +3,11 @@
     <h1>Rent a bike from someone like you</h1>
     <h3>Save money, meet awesome people, and consume less</h3>
     <div class="search-container">
-      <%= simple_form_for @search, url: search_path, wrapper: :inline_form, html: { class: "form-inline", method: :get } do |f| %>
+      <%= simple_form_for @search, url: bikes_path, wrapper: :inline_form, html: { class: "form-inline", method: :get } do |f| %>
         <%= f.hidden_field :locality, value: "Paris", name: "locality" %>
-        <div class="form-group search_locality">
+        <div class="form-group js-search-autocomplete">
           <span class="search_locality-icon"><i class="ion-ios-location"></i></span>
-          <%= f.input_field :locality, value: "Paris, France", disabled: true, class: "form-control input-lg", name: "locality" %>
+          <%= f.input_field :locality, value: "Paris, France", class: "form-control input-lg", name: "locality" %>
         </div>
         <div class="form-group search_date">
           <span class="search_date-icon"><i class="fa fa-calendar"></i></span>
@@ -17,5 +17,38 @@
       <% end %>
     </div>
   </div>
+
+  <div class="scroll-down">
+    <div class="angle-icon-wrapper"><%= icon("angle-down", class: "fa-5x", id: "scroll-down") %></div>
+    <div>See more</div>
+  </div>
+
 <% end %>
+
+
+<div class="howitworks-reco-container">
+  <div class="howitworks-container">
+    <section class="how-it-works" id ="how-it-works">
+      <h2>How it works&nbsp;?</h2>
+      <div class="container content-wrapper">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-4 text-center">
+            <div id="glass-icon" class="icon-wrapper"></div>
+            <h4>Use our search to find bikes near you.</h4>
+          </div>
+
+          <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-4 text-center">
+            <div class="icon-wrapper" id="label-icon"></div>
+            <h4>Request the date you need for the ride.</h4>
+          </div>
+
+          <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-4 text-center">
+            <div class="icon-wrapper" id="discount-icon"></div>
+            <h4>Confirm and then pick up your ride.</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
 

@@ -1,37 +1,81 @@
-<div class="row">
-  <div class="col-md-3">
-    <ul class= "sidebar-list">
-      <li class="sidebar-item"><%= link_to "Your Bikes", bikes_path, class: "sidebar-link active" %></li>
-      <li class="sidebar-item"><%= link_to "Your Rides", reservations_path, class: "sidebar-link" %></li>
-    </ul>
-  </div>
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-      Your wonderful bikes !
-      </div>
-      <div class="panel-body">
-        <% @bikes.each do |bike| %>
-          <div class="row">
-            <div class="col-md-2">
-              <%= image_tag bike.photos[0].image.url(:thumb) if bike.photos.length > 0 %>
-            </div>
-            <div class="col-md-7">
-              <h4><%= bike.title %></h4>
-            </div>
-            <div class="col-md-3 right">
-              <%= link_to "Show", bike_path(bike), class: "btn btn-primary" %>
-              <%= link_to "Edit", edit_bike_path(bike), class: "btn btn-primary" %>
-              <%= link_to bike_path(bike), method: :delete do %>
-              <i class="fa fa-times fa-2x delete_cross"></i>
-              <% end %>
-            </div>
-
-          </div>
-          <hr>
-        <% end %>
-
-      </div>
+<div id="wrapper">
+  <div id="sidebar">
+    <div id="map" class="sticky">
     </div>
   </div>
+
+  <div id="article">
+
+  <div class="row bikes-item">
+      <% @bikes.each do |b|  %>
+      <div class="col-xs-12 col-sm-6">
+      <%= link_to bike_path(b) do %>
+            <div class="card">
+              <% if !b.photos.empty? %>
+              <span class="card-bg" style="background-image: url('<%= b.photos.first.image.url() %>')"></span>
+              <% end %>
+              <span class="card-shadow"></span>
+              <span class="card-description">Popular</span>
+              <span class="card-text">
+                <h2> <%= b.category %></h2>
+                <p> <%= b.title %></p>
+              </span>
+              <span class="card-user">
+              <% if current_user %>
+                <%= image_tag avatar_url(b.user), class: "img-circle avatar-medium" %>
+              <% end %>
+              </span>
+            </div>
+          <% end %>
+          </div>
+        <% end %>
+   </div>
 </div>
+
+<script>
+$(function() {
+  $('#start_date').datepicker({
+    dateFormat: 'dd-mm-yy',
+    minDate: 0,
+    maxDate: "3m",
+    onSelect: function(selected) {
+      $('#end_date').datepicker("option", "minDate", selected);
+      $('#end_date').attr('disabled', false);
+    }
+  });
+  $("#end_date").datepicker({
+    dateFormat: 'dd-mm-yy',
+    minDate: 0,
+    maxDate: "3m",
+    onSelect: function(selected) {
+      $('#start_date').datepicker("option", "maxDate", selected);
+    }
+  });
+})
+
+</script>
+
+<script>
+  $(function(){ // document ready
+
+  if (!!$('.sticky').offset()) { // make sure ".sticky" element exists
+
+    var stickyTop = $('.sticky').offset().top; // returns number
+
+    $(window).scroll(function(){ // scroll event
+
+      var windowTop = $(window).scrollTop(); // returns number
+
+      if (stickyTop < windowTop){
+        $('.sticky').css({ position: 'fixed', top: 0 });
+      }
+      else {
+        $('.sticky').css('position','static');
+      }
+
+    });
+
+  }
+
+});
+</script>

@@ -1,0 +1,14 @@
+.bikes.index {
+  #wrapper {
+    width: 100%;
+    #sidebar {
+      width: 40%;
+      float: right;
+      #map {
+        width: 100%;
+        height: 600px;
+      }
+    }
+  }
+}
+

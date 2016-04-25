@@ -1,9 +1,10 @@
 class BikesController < ApplicationController
 before_action :set_bike, only: [:edit,:update, :show, :destroy]
-before_action :authenticate_user!, except: [:show]
+before_action :authenticate_user!, except: [:show, :index]
 
   def index
     @bikes = Bike.where(user: current_user)
+    @search = Search.new
   end
 
    def show
