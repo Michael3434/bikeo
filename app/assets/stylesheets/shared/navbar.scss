@@ -1,5 +1,10 @@
 .navbar {
-  background-color: transparent;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+  background-color: #f8f8f8;
   border: none;
   height: 61px;
   border-bottom: 1px solid #dce0e0;
